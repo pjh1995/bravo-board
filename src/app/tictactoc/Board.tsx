@@ -1,10 +1,9 @@
-import Square, { SquareProps } from "./Square";
+import Square, { SquareProps } from './Square';
 export type BoardProps = {
-  squares: SquareProps["value"][];
+  squares: SquareProps['value'][];
   onClick: (idx: number) => void;
 };
-function divideArray<T>(arr: T[], divide: number) {
-  console.log({ arr });
+export function divideArray<T>(arr: T[], divide: number) {
   const _arr = [...arr];
   const result = [];
 
@@ -21,11 +20,7 @@ const Board = (props: BoardProps) => {
       {rows.map((row, i) => (
         <div className="board-row" key={`row_${i}`}>
           {row.map((cell, j) => (
-            <Square
-              key={`cell_${i}_${j}`}
-              value={cell}
-              onClick={() => props.onClick(i * 3 + j)}
-            />
+            <Square key={`cell_${i}_${j}`} value={cell} onClick={() => props.onClick(i * 3 + j)} />
           ))}
         </div>
       ))}
